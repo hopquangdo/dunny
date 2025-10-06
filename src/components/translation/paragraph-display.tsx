@@ -40,7 +40,7 @@ export function ParagraphDisplay({
           </button>
         )}
       </div>
-      <div className="text-base lg:text-lg leading-relaxed">
+      <div className="text-base lg:text-lg leading-relaxed whitespace-pre-line">
         {sentences.map((sentence, index) => {
           const displayText = !showOriginal && submittedTranslations[index] ? submittedTranslations[index] : sentence
           const isTranslated = submittedTranslations[index] !== undefined
@@ -49,12 +49,12 @@ export function ParagraphDisplay({
             <span
               key={index}
               className={`transition-all duration-300 ${index === currentSentenceIndex
-                  ? "text-primary font-medium"
-                  : isTranslated && !showOriginal
-                    ? "text-success"
-                    : index < currentSentenceIndex
-                      ? "text-muted-foreground/50"
-                      : "text-muted-foreground"
+                ? "text-primary font-medium"
+                : isTranslated && !showOriginal
+                  ? "text-success"
+                  : index < currentSentenceIndex
+                    ? "text-muted-foreground/50"
+                    : "text-muted-foreground"
                 }`}
             >
               {displayText}{" "}

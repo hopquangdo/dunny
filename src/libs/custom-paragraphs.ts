@@ -9,7 +9,6 @@ export function getCustomParagraphs(): Paragraph[] {
         const stored = localStorage.getItem(STORAGE_KEY)
         return stored ? JSON.parse(stored) : []
     } catch (error) {
-        console.error("Error loading custom paragraphs:", error)
         return []
     }
 }

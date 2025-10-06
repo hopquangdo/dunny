@@ -15,7 +15,6 @@ interface FeedbackPanelProps {
 }
 
 export function FeedbackPanel({ feedback, isLoading, onRetry }: FeedbackPanelProps) {
-  console.log(feedback)
   return (
     <div className="bg-card border border-border rounded-xl p-6 lg:p-8 xl:sticky xl:top-6">
       <div className="flex items-center gap-3 mb-6">

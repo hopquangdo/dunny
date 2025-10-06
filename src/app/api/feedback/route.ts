@@ -42,7 +42,6 @@ Output JSON strictly in this format:
 
 All comments and suggestions must be written in Vietnamese. Be strict in scoring. No extra text or markdown.
 `;
-        console.log("Prompt sent to LLM:", prompt);
 
         const result = await ai.models.generateContent({
             model: "gemini-2.5-flash",
@@ -58,7 +57,6 @@ All comments and suggestions must be written in Vietnamese. Be strict in scoring
                 .trim();
             feedback = JSON.parse(cleanedText);
         } catch (err) {
-            console.error("LLM response parsing error:", err, result.text);
             feedback = {
                 overallScore: 0,
                 semantics: { score: 0, comment: "Invalid response" },
@@ -70,7 +68,6 @@ All comments and suggestions must be written in Vietnamese. Be strict in scoring
 
         return NextResponse.json({ feedback });
     } catch (error) {
-        console.error("Error evaluating translation:", error);
         return NextResponse.json({ error: "Unable to evaluate translation" }, { status: 500 });
     }
 }

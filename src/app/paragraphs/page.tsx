@@ -22,10 +22,13 @@ export default function ParagraphsPage() {
   }, [selectedLanguage, selectedTopic, selectedDifficulty])
 
   const difficultyColors = {
-    Beginner: "bg-success/10 text-success border-success/20",
-    Intermediate: "bg-warning/10 text-warning border-warning/20",
-    Advanced: "bg-destructive/10 text-destructive border-destructive/20",
-  }
+    A1: "bg-success/10 text-success border-success/20",       // dễ nhất
+    A2: "bg-success/20 text-success/80 border-success/30",
+    B1: "bg-warning/10 text-warning border-warning/20",       // trung bình
+    B2: "bg-warning/20 text-warning/80 border-warning/30",
+    C1: "bg-destructive/10 text-destructive border-destructive/20", // khó
+    C2: "bg-destructive/20 text-destructive/80 border-destructive/30",
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -65,7 +68,6 @@ export default function ParagraphsPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {/* Language Filter */}
               <div>
                 <label className="block text-sm font-medium mb-2 text-muted-foreground">Translation Direction</label>
                 <select
@@ -74,8 +76,8 @@ export default function ParagraphsPage() {
                   className="w-full px-4 py-2.5 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                 >
                   <option value="all">All Languages</option>
-                  <option value="en-to-vi">English → Vietnamese</option>
-                  <option value="vi-to-en">Vietnamese → English</option>
+                  <option value="en-to-vi">English</option>
+                  <option value="vi-to-en">Vietnamese</option>
                 </select>
               </div>
 
@@ -105,9 +107,12 @@ export default function ParagraphsPage() {
                   className="w-full px-4 py-2.5 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                 >
                   <option value="all">All Levels</option>
-                  <option value="Beginner">Beginner</option>
-                  <option value="Intermediate">Intermediate</option>
-                  <option value="Advanced">Advanced</option>
+                  <option value="A1">A1</option>
+                  <option value="A2">A2</option>
+                  <option value="B1">B1</option>
+                  <option value="B2">B2</option>
+                  <option value="C1">C1</option>
+                  <option value="C2">C2</option>
                 </select>
               </div>
             </div>
@@ -167,33 +172,34 @@ export default function ParagraphsPage() {
 
                 {/* Footer */}
                 <div className="flex items-center justify-between pt-4 border-t border-border">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`text-xs font-medium px-3 py-1 rounded-full border ${difficultyColors[paragraph.difficulty]}`}
-                    >
-                      {paragraph.difficulty}
-                    </span>
+                  <div className="flex space-x-5">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`text-xs font-medium px-3 py-1 rounded-full border ${difficultyColors[paragraph.difficulty]}`}
+                      >
+                        {paragraph.difficulty}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                      {paragraph.sentenceCount} sentences
+                    </div>
                   </div>
 
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                      />
+                  <div className="flex items-center justify-end text-primary transition-opacity">
+                    <span className="text-sm font-medium">Start Practice</span>
+                    <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
-                    {paragraph.sentenceCount} sentences
                   </div>
-                </div>
-
-                {/* Hover Arrow */}
-                <div className="flex items-center justify-end mt-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                  <span className="text-sm font-medium">Start Practice</span>
-                  <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
                 </div>
               </Link>
             ))}
