@@ -47,8 +47,7 @@ export default function ParagraphsPage() {
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-balance mb-4">Choose a Paragraph</h1>
             <p className="text-muted-foreground text-base sm:text-lg max-w-3xl">
-              Select a paragraph to practice translating. Each paragraph contains 5 sentences for you to translate one
-              by one with AI feedback.
+              Select a paragraph to practice translating.
             </p>
           </div>
 
