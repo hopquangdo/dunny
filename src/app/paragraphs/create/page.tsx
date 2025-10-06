@@ -13,7 +13,7 @@ export default function CreateParagraphPage() {
     const [formData, setFormData] = useState({
         title: "",
         topic: "",
-        difficulty: "Beginner" as "Beginner" | "Intermediate" | "Advanced",
+        difficulty: "A1" as "A1" | "A2" | "B1" | "B2" | "C1" | "C2",
         language: "en-to-vi" as "en-to-vi" | "vi-to-en",
         text: "",
     })
@@ -158,7 +158,7 @@ export default function CreateParagraphPage() {
                                     id="difficulty"
                                     value={formData.difficulty}
                                     onChange={(e) =>
-                                        setFormData({ ...formData, difficulty: e.target.value as "Beginner" | "Intermediate" | "Advanced" })
+                                        setFormData({ ...formData, difficulty: e.target.value as "A1" | "A2" | "B1" | "B2" | "C1" | "C2" })
                                     }
                                     className="w-full px-4 py-2.5 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                                 >
