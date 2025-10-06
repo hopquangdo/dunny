@@ -167,7 +167,7 @@ function TranslationPracticeContent() {
                   <div className="flex flex-col sm:flex-row gap-3">
                     {previousParagraph && (
                       <Link
-                        href={`/translation-practice?id=${previousParagraph.id}`}
+                        href={`/translation?id=${previousParagraph.id}`}
                         className="flex-1 group bg-muted hover:bg-muted/80 border border-border hover:border-primary/50 rounded-lg p-4 transition-all"
                       >
                         <div className="flex items-center gap-3">
@@ -190,7 +190,7 @@ function TranslationPracticeContent() {
                     )}
                     {nextParagraph && (
                       <Link
-                        href={`/translation-practice?id=${nextParagraph.id}`}
+                        href={`/translation?id=${nextParagraph.id}`}
                         className="flex-1 group bg-muted hover:bg-muted/80 border border-border hover:border-primary/50 rounded-lg p-4 transition-all"
                       >
                         <div className="flex items-center gap-3">
